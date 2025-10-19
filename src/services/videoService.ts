@@ -50,7 +50,7 @@ async function getAllVideos(): Promise<Video[]> {
 
 async function getSingleVideo(video_id: string): Promise<Video> {
   const res = await apiClient.get("/videos/single", { params: { video_id } });
-  return res.data;
+  return res.data?.video;
 }
 
 async function createVideo(body: CreateVideoParams): Promise<Success> {
