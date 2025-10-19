@@ -7,7 +7,7 @@ export default function VideoList({ videos }: { videos: Video[] }) {
   if (videos.length === 0) {
     return (
       <div className="col-span-full text-center text-gray-500 text-lg py-16 border rounded-lg w-full bg-white dark:bg-neutral-900 shadow-sm">
-        No videos yet — create one to get started 🎬
+        No videos yet — add one to get started 🎬
       </div>
     );
   }

@@ -37,10 +37,9 @@ export interface EditVideoParams {
 export interface CreateCommentParams {
   video_id: string;
   content: string;
-  user_id: string;
 }
 
-const user_id = "testing_testing";
+const user_id = "Ross_S";
 
 // videos
 async function getAllVideos(): Promise<Video[]> {
@@ -71,7 +70,8 @@ async function getVideoComments(video_id: string): Promise<Comment[]> {
 }
 
 async function createComment(body: CreateCommentParams): Promise<Success> {
-  const res = await apiClient.post("/videos/comments", body);
+  const bodyWithUserId = { ...body, user_id };
+  const res = await apiClient.post("/videos/comments", bodyWithUserId);
   return res.data;
 }
 

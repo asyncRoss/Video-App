@@ -33,7 +33,6 @@ export default function useComments(videoId: string) {
     try {
       await videosService.createComment({
         video_id: videoId,
-        user_id: "testing_testing",
         content: content.trim(),
       });
       await fetchComments();
