@@ -21,7 +21,7 @@ export default function VideoCard({ video }: { video: Video }) {
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 line-clamp-1">
             {video.title}
           </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 min-h-[40px]">
+          <p className="italic text-sm text-gray-600 dark:text-gray-400 line-clamp-2 min-h-[40px]">
             {video.description}
           </p>
         </div>

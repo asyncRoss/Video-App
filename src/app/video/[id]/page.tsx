@@ -25,8 +25,11 @@ export default function VideoPage() {
           />
         </div>
         <div>
-          <h1 className="text-2xl font-semibold mt-4">{video.title}</h1>
-          <p className="text-gray-600 max-w-[600px] text-sm leading-relaxed">
+          <h1 className="text-xl font-semibold mt-4 break-words whitespace-normal max-w-[600px]">
+            {video.title}
+          </h1>
+
+          <p className="italic text-gray-600 max-w-[600px] text-sm leading-relaxed break-words whitespace-normal">
             {video.description}
           </p>
         </div>

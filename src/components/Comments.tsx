@@ -59,10 +59,10 @@ export default function Comments({ videoId }: { videoId: string }) {
               key={comment.id}
               className="border border-gray-200 dark:border-neutral-800 rounded-lg p-3 shadow-sm bg-white/95 dark:bg-neutral-900/90 text-left"
             >
-              <p className="text-gray-900 dark:text-gray-100 text-sm">
+              <p className=" text-gray-900 dark:text-gray-100 text-sm">
                 {comment.content}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              <p className="italic text-xs text-gray-500 dark:text-gray-400 mt-1">
                 by {comment.user_id} •{" "}
                 {new Date(comment.created_at).toLocaleString()}
               </p>
