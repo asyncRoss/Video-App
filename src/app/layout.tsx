@@ -31,7 +31,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[url('/paper.png')] bg-repeat bg-auto`}
       >
-        <Splash />
         <nav className="w-full border-b bg-white shadow-sm bg-[url('/chalkboard.png')] bg-repeat bg-auto">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <Link
@@ -51,6 +50,7 @@ export default function RootLayout({
 
         <main className="max-w-6xl mx-auto px-6 py-8">{children}</main>
 
+        <Splash />
         <Toaster
           position="top-center"
           toastOptions={{
