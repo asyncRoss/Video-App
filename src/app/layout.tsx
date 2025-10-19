@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import Link from "next/link";
+import { Home } from "lucide-react"; // ✅ Import icon
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +28,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <nav className="w-full border-b bg-white shadow-sm">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <Link
+              href="/"
+              className="hover:opacity-80 transition-opacity flex items-center gap-2"
+            >
+              <Home className="w-8 h-8" />{" "}
+            </Link>
+          </div>
+        </nav>
+
+        <main className="max-w-6xl mx-auto px-6 py-8">{children}</main>
+
         <Toaster position="top-center" />
       </body>
     </html>
