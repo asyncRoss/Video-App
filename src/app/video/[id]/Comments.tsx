@@ -1,0 +1,70 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
+import useComments from "@/hooks/useComments";
+
+export default function Comments({ videoId }: { videoId: string }) {
+  const {
+    comments,
+    addComment,
+    loadingFetch,
+    loadingAdd,
+    errorFetch,
+    errorAdd,
+  } = useComments(videoId);
+
+  const [newComment, setNewComment] = useState("");
+
+  useEffect(() => {
+    if (errorFetch) toast.error(errorFetch);
+  }, [errorFetch]);
+
+  useEffect(() => {
+    if (errorAdd) toast.error(errorAdd);
+  }, [errorAdd]);
+
+  return (
+    <div className="flex flex-col items-center xl:items-start lg:pl-8 max-w-4xl mx-auto w-full">
+      <div className="flex items-center gap-2 mb-4 w-full max-w-[600px] mx-auto">
+        <Input
+          placeholder="Write a comment..."
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+        />
+        <Button
+          onClick={() => {
+            addComment(newComment);
+            setNewComment("");
+          }}
+          disabled={loadingAdd}
+        >
+          {loadingAdd ? "Posting..." : "Post"}
+        </Button>
+      </div>
+
+      <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 w-full max-w-[600px] mx-auto">
+        {loadingFetch ? (
+          <p className="text-gray-500 text-sm">Loading comments...</p>
+        ) : comments.length === 0 ? (
+          <p className="text-gray-500 text-sm">No comments yet.</p>
+        ) : (
+          comments.map((comment) => (
+            <div
+              key={comment.id}
+              className="border rounded-lg p-3 shadow-sm bg-white text-left"
+            >
+              <p className="text-gray-800 text-sm">{comment.content}</p>
+              <p className="text-xs text-gray-400 mt-1">
+                by {comment.user_id} •{" "}
+                {new Date(comment.created_at).toLocaleString()}
+              </p>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
