@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Link from "next/link";
-import { Home } from "lucide-react"; // ✅ Import icon
+import { Home } from "lucide-react";
+import Splash from "@/components/SplashPage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,22 +29,39 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[url('/paper.png')] bg-repeat bg-auto`}
       >
-        <nav className="w-full border-b bg-white shadow-sm">
+        <Splash />
+        <nav className="w-full border-b bg-white shadow-sm bg-[url('/chalkboard.png')] bg-repeat bg-auto">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <Link
               href="/"
               className="hover:opacity-80 transition-opacity flex items-center gap-2"
             >
-              <Home className="w-8 h-8" />{" "}
+              <Home className="w-9 h-9 text-yellow-500" />{" "}
+              <span className="text-xl font-bold italic text-gray-200">
+                edu
+                <span className="text-xl font-black text-yellow-500">
+                  Learner
+                </span>
+              </span>
             </Link>
           </div>
         </nav>
 
         <main className="max-w-6xl mx-auto px-6 py-8">{children}</main>
 
-        <Toaster position="top-center" />
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            classNames: {
+              success:
+                "bg-green-100 border border-green-300 text-green-800 font-medium shadow-md",
+              error:
+                "bg-red-100 border border-red-300 text-red-800 font-medium shadow-md",
+            },
+          }}
+        />
       </body>
     </html>
   );

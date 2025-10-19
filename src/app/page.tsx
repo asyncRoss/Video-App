@@ -13,7 +13,7 @@ export default function Home() {
   }, [error]);
 
   if (loading) {
-    return <div className="text-gray-500 text-center">Loading videos...</div>;
+    return <div className="text-gray-500 text-center">Loading videos... </div>;
   }
 
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       </div>
 
       <div className="flex justify-center px-4 sm:px-6 lg:px-10 py-8">
-        <div className="grid w-full max-w-6xl gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        <div className="grid w-full max-w-6xl gap-8 sm:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
           <VideoList videos={videos} />
         </div>
       </div>

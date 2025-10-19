@@ -51,6 +51,7 @@ function VideoForm({
       <div className="grid gap-2">
         <Label htmlFor="video_url">Video URL</Label>
         <Input
+          type="url"
           id="video_url"
           name="video_url"
           placeholder="Enter video URL"
@@ -103,7 +104,7 @@ export default function AddVideoDialog({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <Button variant="outline" onClick={openDialog}>
+      <Button onClick={openDialog}>
         Add Video <Plus />
       </Button>
 

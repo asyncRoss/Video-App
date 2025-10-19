@@ -18,7 +18,7 @@ export default function VideoList({ videos }: { videos: Video[] }) {
         <Link
           key={video.id}
           href={`/video/${video.id}`}
-          className="w-full max-w-[350px] transition-transform transform hover:scale-[1.02] hover:brightness-105"
+          className="block w-full max-w-[350px] transition-transform hover:scale-[1.02] hover:z-10"
         >
           <VideoCard video={video} />
         </Link>
