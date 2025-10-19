@@ -1,3 +1,10 @@
+![Home Screenshot](public/screen1.png)
+![Home Screenshot](public/screen2.png)
+![Video Screenshot](public/screen3.png)
+![Video Screenshot](public/screen4.png)
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
