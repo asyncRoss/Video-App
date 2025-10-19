@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import useVideo from "@/hooks/useVideo";
 import ReactPlayer from "react-player";
-import Comments from "../../../components/Comments";
+import Comments from "@/components/Comments";
 
 export default function VideoPage() {
   const { id } = useParams();

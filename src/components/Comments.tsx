@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,7 +27,6 @@ export default function Comments({ videoId }: { videoId: string }) {
 
   return (
     <div className="flex flex-col items-center xl:items-start lg:pl-8 max-w-4xl mx-auto w-full">
-      {/* Input row */}
       <div className="flex items-center gap-2 mb-4 w-full max-w-[600px] mx-auto">
         <Input
           placeholder="Write a comment..."
@@ -47,7 +45,6 @@ export default function Comments({ videoId }: { videoId: string }) {
         </Button>
       </div>
 
-      {/* Comments list */}
       <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 w-full max-w-[600px] mx-auto">
         {loadingFetch ? (
           <p className="text-gray-500 text-sm">Loading comments...</p>

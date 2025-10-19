@@ -5,7 +5,6 @@ export default function SplashScreen() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Fade out after the animation finishes (~1.2s)
     const timer = setTimeout(() => setFadeOut(true), 700);
     return () => clearTimeout(timer);
   }, []);
@@ -21,7 +20,6 @@ export default function SplashScreen() {
         <span className="w-8 h-8 rounded-full bg-yellow-500 animate-pingOnce [animation-delay:0.2s]"></span>
       </div>
 
-      {/* Inline keyframes so you don't need Tailwind config */}
       <style jsx>{`
         @keyframes pingOnce {
           0% {
